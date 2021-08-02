@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Welcome to Your Vue.js App</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -12,10 +12,32 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
+  mounted() {
+    console.log("Component has loaded");
+    console.log(this.fetchTickets());
+  },
+
+  data() {
+    return {
+      tickets: null,
+    };
+  },
+
+  methods: {
+    fetchTickets: () => {
+      var tickets = axios({
+        method: "get",
+        url: "https://zcctunji.zendesk.com/api/v2/tickets/api/v2/tickets",
+        auth: {
+          username: "samuel.o.adetunji@ttu.edu",
+          password: "iDET38wicKBLbDY",
+        },
+      });
+      this.tickets = tickets;
+    },
   },
 };
 </script>
