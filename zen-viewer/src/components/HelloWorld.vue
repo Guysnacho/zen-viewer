@@ -2,13 +2,13 @@
   <div class="hello">
     <h1>Welcome to Samuel Adetunji's ZenVuer</h1>
     <it-alert
-      :visible="loaded"
+      :visible="!getLoaded"
       type="danger"
       title="Can't reach Zendesk"
       iconbox
       body="Please try again later"
     />
-    <it-button @click="fetchTickets">Request</it-button>
+    <it-button @click="getTickets">Request</it-button>
   </div>
 </template>
 
@@ -18,26 +18,23 @@ export default {
   name: "HelloWorld",
   mounted() {
     console.log("Component has loaded");
+    this.fetchTickets();
   },
 
   data() {
     return {
-      tickets: null,
+      tickets: [],
       loaded: false,
     };
   },
-
   methods: {
-    fetchTickets: () => {
+    fetchTickets() {
       axios({
         method: "get",
         url: "http://localhost:3000",
         auth: {
           username: "samuel.o.adetunji@ttu.edu",
           password: "iDET38wicKBLbDY",
-        },
-        headers: {
-          "Access-Control-Allow-Origin": "*",
         },
       })
         .then((Response) => {
@@ -65,6 +62,14 @@ export default {
           console.log(Error);
           this.loaded = false;
         });
+    },
+  },
+  computed: {
+    getTickets() {
+      return console.log(this.tickets);
+    },
+    getLoaded() {
+      return this.loaded;
     },
   },
 };
