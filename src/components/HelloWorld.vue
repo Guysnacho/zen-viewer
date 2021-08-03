@@ -30,11 +30,7 @@ export default {
     fetchTickets: () => {
       var tickets = axios({
         method: "get",
-        url: "https://zcctunji.zendesk.com/api/v2/tickets/api/v2/tickets",
-        auth: {
-          username: "samuel.o.adetunji@ttu.edu",
-          password: "iDET38wicKBLbDY",
-        },
+        url: "localhost:3000",
       });
       this.tickets = tickets;
     },
