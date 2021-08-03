@@ -31,10 +31,13 @@ export default {
     fetchTickets: () => {
       axios({
         method: "get",
-        url: "localhost:3000",
+        url: "http://localhost:3000",
         auth: {
           username: "samuel.o.adetunji@ttu.edu",
           password: "iDET38wicKBLbDY",
+        },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
         },
       })
         .then((Response) => {
@@ -43,17 +46,19 @@ export default {
           if (Response.data.next_page) {
             axios({
               method: "get",
-              url: "localhost:3000/2",
+              url: "http://localhost:3000/2",
               auth: {
                 username: "samuel.o.adetunji@ttu.edu",
                 password: "iDET38wicKBLbDY",
               },
-            }).then((Response) => {
-              this.tickets = [...this.tickets, Response.data.tickets];
-            }).catch(Error => {
-              alert("Failed to retrieve second page.");
-              console.log(Error)
-            });
+            })
+              .then((Response) => {
+                this.tickets = [...this.tickets, Response.data.tickets];
+              })
+              .catch((Error) => {
+                alert("Failed to retrieve second page.");
+                console.log(Error);
+              });
           }
         })
         .catch((Error) => {
