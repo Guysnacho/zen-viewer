@@ -34,7 +34,7 @@ app.use(
 app.use(
   "/2",
   createProxyMiddleware({
-    target: API_SERVICE_URL+"?page=2",
+    target: API_SERVICE_URL.concat("?page=2"),
     changeOrigin: true
   })
 );

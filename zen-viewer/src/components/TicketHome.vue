@@ -8,14 +8,13 @@
       iconbox
       body="Please try again later"
     />
-    <it-button @click="getTickets">Request</it-button>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "HelloWorld",
+  name: "TicketHome",
   mounted() {
     console.log("Component has loaded");
     this.fetchTickets();
@@ -65,9 +64,6 @@ export default {
     },
   },
   computed: {
-    getTickets() {
-      return console.log(this.tickets);
-    },
     getLoaded() {
       return this.loaded;
     },
