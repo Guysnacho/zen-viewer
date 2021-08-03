@@ -8,12 +8,15 @@
       iconbox
       body="Please try again later"
     />
+    <ticket-table v-if="loaded" :tickets="tickets" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import TicketTable from "./TicketTable.vue";
 export default {
+  components: { TicketTable },
   name: "TicketHome",
   mounted() {
     console.log("Component has loaded");
@@ -26,6 +29,7 @@ export default {
       loaded: false,
     };
   },
+
   methods: {
     fetchTickets() {
       axios({
