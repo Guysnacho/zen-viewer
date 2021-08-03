@@ -8,7 +8,7 @@
       iconbox
       body="Please try again later"
     />
-    <ticket-table v-if="loaded" :tickets="tickets" />
+    <ticket-table v-if="loaded" tickets="tickets" />
   </div>
 </template>
 

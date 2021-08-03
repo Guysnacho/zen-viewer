@@ -1,20 +1,18 @@
 <template>
   <it-collapse>
     <it-collapse-item title="Tickets">
-
-    </it-collapse-item
-  ></it-collapse>
+      <DataTable :value="tickets" :paginator="true" :rows="25"> </DataTable>
+    </it-collapse-item>
+  </it-collapse>
 </template>
 
 <script>
-//import VueTableLite from "vue3-table-lite";
-
 export default {
   name: "TicketTable",
 
-  data() {
+  data(props) {
     return {
-      tickets: [],
+      tickets: props.tickets,
     };
   },
 };
