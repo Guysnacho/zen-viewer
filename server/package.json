@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "ZenViewer Proxy",
+  "main": "index.js",
+  "author": "Samuel Adetunji",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
