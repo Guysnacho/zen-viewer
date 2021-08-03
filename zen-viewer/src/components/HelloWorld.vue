@@ -1,13 +1,14 @@
 <template>
   <div class="hello">
-    <h1>Welcome to Your Vue.js App</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
+    <h1>Welcome to Samuel Adetunji's ZenVuer</h1>
+    <it-alert
+      :visible="loaded"
+      type="danger"
+      title="Can't reach Zendesk"
+      iconbox
+      body="Please try again later"
+    />
+    <it-button @click="fetchTickets">Request</it-button>
   </div>
 </template>
 
@@ -17,22 +18,30 @@ export default {
   name: "HelloWorld",
   mounted() {
     console.log("Component has loaded");
-    console.log(this.fetchTickets());
   },
 
   data() {
     return {
       tickets: null,
+      loaded: false,
     };
   },
 
   methods: {
     fetchTickets: () => {
-      var tickets = axios({
+      axios({
         method: "get",
         url: "localhost:3000",
-      });
-      this.tickets = tickets;
+
+      })
+        .then((Response) => {
+          this.loaded = true;
+          this.tickets = Response.data;
+        })
+        .catch((Error) => {
+          console.log(Error);
+          this.loaded = false;
+        });
     },
   },
 };
