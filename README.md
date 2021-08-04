@@ -33,9 +33,9 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 $ git clone https://github.com/Guysnacho/zen-viewer
 
 # Access
-$ cd zen-viewer\server # For server app
+$ cd server # For server app in the server folder
 
-$ cd zen-viewer\zen-viewer # For server app
+$ cd zen-viewer # For Vue app in the zen-viewer\zen-viewer folder (Sorry for the doubling)
 
 # Install dependencies
 $ yarn
@@ -45,9 +45,7 @@ $ yarn start # For server app
 
 $ yarn serve # For Vue app
 
-#repeat this for the Vue app in zen-viewer\zen-viewer
-
-# The server will initialize in the <http://localhost:8080/#>
+# The frontend will initialize at <http://localhost:8080/#> and the server at <http://localhost:3000/#>
 ```
 
 <a href="#top">Back to top</a>
