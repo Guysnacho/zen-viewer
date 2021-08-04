@@ -30,10 +30,12 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{Guysnacho}}/zen-viewer
+$ git clone https://github.com/Guysnacho/zen-viewer
 
 # Access
-$ cd zen-viewer\server
+$ cd zen-viewer\server # For server app
+
+$ cd zen-viewer\zen-viewer # For server app
 
 # Install dependencies
 $ yarn
