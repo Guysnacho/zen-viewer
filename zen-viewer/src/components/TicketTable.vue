@@ -1,11 +1,17 @@
 <template>
   <it-collapse>
     <it-collapse-item title="Tickets">
-      <DataTable :value="tickets" :paginator="true" :rows="25">
-        <Column field="id" header="ID"></Column>
-        <Column field="id" header="Subject"></Column>
-        <Column field="id" header="Updated at"></Column>
-        <Column field="id" header="Created at"></Column>
+      <DataTable
+        :value="tickets"
+        :paginator="true"
+        :rows="25"
+        sortMode="multiple"
+        class="p-datatable-sm"
+      >
+        <Column field="id" header="ID" sortable></Column>
+        <Column field="subject" header="Subject"></Column>
+        <Column field="updated_at" header="Updated at" sortable></Column>
+        <Column field="created_at" header="Created at" sortable></Column>
       </DataTable>
     </it-collapse-item>
   </it-collapse>
