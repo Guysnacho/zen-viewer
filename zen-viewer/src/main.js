@@ -4,6 +4,7 @@ import router from "./router";
 import Equal from "equal-vue";
 import PrimeVue from "primevue/config";
 import DataTable from "primevue/datatable";
+import Card from "primevue/card";
 
 import "equal-vue/dist/style.css";
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
@@ -15,4 +16,5 @@ createApp(App)
   .use(Equal)
   .use(PrimeVue)
   .component("DataTable", DataTable)
+  .component("Card", Card)
   .mount("#app");
